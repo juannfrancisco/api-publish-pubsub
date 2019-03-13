@@ -1,0 +1,15 @@
+## EXPOSE
+kind: Service
+apiVersion: v1
+metadata:
+  name: svc-api-example #Change
+spec:
+  selector:
+    app: de-api-example #Change
+  type: LoadBalancer
+  ports:
+  - name: de-api-example #Change
+    protocol: TCP
+    nodePort: 30193
+    port: 8080
+    targetPort: 8080
