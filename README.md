@@ -1,23 +1,10 @@
+# Crear topico en pub-sub
 
-
-#Crear el arquetipo localmente
-
-
-mvn archetype:create-from-project
-
-
-
-cd target/generated-sources/archetype
-
-
-mvn install
+export NAME_TOPIC="messages"
+gcloud services enable pubsub.googleapis.com
+gcloud pubsub topics create ${NAME_TOPIC}
 
 
 
-
-# Crear un proyecto usando el arquetipo
-
-mvn archetype:generate \
-    -DarchetypeGroupId=com.zenta.archetype \
-    -DarchetypeArtifactId=spring-boot-basic \
-    -DarchetypeVersion=1.0.0
+#Ejecutar App
+mvn spring-boot:run
